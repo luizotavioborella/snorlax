@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokédex - Snorlax</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        var snorlax = {
+            nome: "Snorlax",
+            numeroPokedex: 143,
+            tipo: "Normal",
+            nivel: 20,
+            vida: 160,
+            energia: 100,
+            altura: 2.1,
+            peso: 460,
+            forca: 110,
+            defesa: 65,
+            velocidade: 30,
+            habilidade: "Imunidade",
+            ataquePrincipal: "Hiper Raio",
+            ataqueSecundario: "Soco Trovão",
+            fraqueza: "Lutador",
+            evolucao: "Não possui",
+            dormir: function() {
+                this.energia = this.energia + 10
+            },
+            comer: function() {
+                this.energia = this.energia + 10
+                this.vida = this.vida + 10
+            },
+            atacar: function() {
+                this.energia = this.energia - 10
+            },
+            receberDano: function() {
+                this.vida = this.vida - 20
+            },
+            andar: function() {
+                this.energia = this.energia - 10
+            },
+            descansar: function() {
+                this.energia = this.energia + 10
+            }
+        }
+        var vidaMaxima = 160
+        var energiaMaxima = 100
+        function atualizarTela() {
+            document.querySelector("#nomePokemon").textContent = snorlax.nome.toUpperCase()
+            document.querySelector("#numeroPokedex").textContent = snorlax.numeroPokedex
+            document.querySelector("#tipoPokemon").textContent = snorlax.tipo.toUpperCase()
+            document.querySelector("#nivelPokemon").textContent = snorlax.nivel
+            document.querySelector("#alturaPokemon").textContent = snorlax.altura + " m"
+            document.querySelector("#pesoPokemon").textContent = snorlax.peso + " kg"
+            document.querySelector("#habilidadePokemon").textContent = snorlax.habilidade
+            document.querySelector("#fraquezaPokemon").textContent = snorlax.fraqueza
+            document.querySelector("#forcaPokemon").textContent = snorlax.forca
+            document.querySelector("#defesaPokemon").textContent = snorlax.defesa
+            document.querySelector("#velocidadePokemon").textContent = snorlax.velocidade
+            document.querySelector("#habilidadeStatus").textContent = snorlax.habilidade
+            document.querySelector("#evolucaoPokemon").textContent = snorlax.evolucao
+            document.querySelector("#ataquePrincipal").textContent = snorlax.ataquePrincipal
+            document.querySelector("#ataqueSecundario").textContent = snorlax.ataqueSecundario
+            document.querySelector("#textoVida").textContent = snorlax.vida + " / " + vidaMaxima
+            document.querySelector("#textoEnergia").textContent = snorlax.energia + " / " + energiaMaxima
+            var porcentagemVida = snorlax.vida / vidaMaxima * 100
+            var porcentagemEnergia = snorlax.energia / energiaMaxima * 100
+            document.querySelector("#barraVida").style.width = porcentagemVida + "%"
+            document.querySelector("#barraEnergia").style.width = porcentagemEnergia + "%"
+            if (snorlax.vida <= 40) {
+                document.querySelector("#barraVida").style.opacity = "0.5"
+            } else {
+                document.querySelector("#barraVida").style.opacity = "1"
+            }
+        }
+        function mostrarMensagem(texto) {
+            document.querySelector("#mensagemAcao").textContent = texto
+        }
+        function atacarPokemon() {
+            if (snorlax.energia <= 0) {
+                mostrarMensagem(snorlax.nome + " está sem energia para atacar!")
+            } else {
+                snorlax.atacar()
+                if (snorlax.energia < 0) {
+                    snorlax.energia = 0
+                }
+                mostrarMensagem(snorlax.nome + " usou " + snorlax.ataquePrincipal + " e perdeu 10 de energia!")
+            }
+            atualizarTela()
+        }
+        function comerPokemon() {
+            snorlax.comer()
+            if (snorlax.energia > energiaMaxima) {
+                snorlax.energia = energiaMaxima
+            }
+            if (snorlax.vida > vidaMaxima) {
+                snorlax.vida = vidaMaxima
+            }
+            mostrarMensagem(snorlax.nome + " comeu e recuperou vida e energia!")
+            atualizarTela()
+        }
+        function dormirPokemon() {
+            snorlax.dormir()
+            if (snorlax.energia > energiaMaxima) {
+                snorlax.energia = energiaMaxima
+            }
+            mostrarMensagem(snorlax.nome + " dormiu e recuperou 10 pontos de energia.")
+            atualizarTela()
+        }
+        function andarPokemon() {
+            if (snorlax.energia <= 0) {
+                mostrarMensagem(snorlax.nome + " está sem energia para andar!")
+            } else {
+                snorlax.andar()
+                if (snorlax.energia < 0) {
+                    snorlax.energia = 0
+                }
+                mostrarMensagem(snorlax.nome + " andou e gastou 10 pontos de energia.")
+            }
+            atualizarTela()
+        }
+        function descansarPokemon() {
+            snorlax.descansar()
+            if (snorlax.energia > energiaMaxima) {
+                snorlax.energia = energiaMaxima
+            }
+            mostrarMensagem(snorlax.nome + " descansou e recuperou 10 pontos de energia.")
+            atualizarTela()
+        }
+        function receberDanoPokemon() {
+            snorlax.receberDano()
+            if (snorlax.vida < 0) {
+                snorlax.vida = 0
+            }
+            if (snorlax.vida == 0) {
+                mostrarMensagem(snorlax.nome + " ficou sem vida!")
+            } else {
+                mostrarMensagem(snorlax.nome + " recebeu 20 pontos de dano.")
+            }
+            atualizarTela()
+        }
+        window.onload = function() {
+            document.querySelector("#btnAtacar").onclick = atacarPokemon
+            document.querySelector("#btnComer").onclick = comerPokemon
+            document.querySelector("#btnDormir").onclick = dormirPokemon
+            document.querySelector("#btnAndar").onclick = andarPokemon
+            document.querySelector("#btnDescansar").onclick = descansarPokemon
+            document.querySelector("#btnDano").onclick = receberDanoPokemon
+            atualizarTela()
+        }
+    </script>
+</head>
+<body>
+    <header class="topo">
+        <div class="marca">
+            <img class="pokebola" src="pokebola.png" alt="Pokébola">
+            <span>POKÉDEX</span>
+        </div>
+        <nav>
+            <a href="#">INÍCIO</a>
+            <a href="#pokemon">POKÉMON</a>
+            <a href="#acoes">AÇÕES</a>
+        </nav>
+    </header>
+    <main class="pagina" id="pokemon">
+        <section class="card perfil">
+            <div class="numero">
+                <span id="numeroPokedex"></span>
+            </div>
+            <div class="imagem-pokemon">
+                <span class="zzz">Z z z</span>
+                <img src="snorlax1.png" alt="Imagem do Snorlax">
+            </div>
+            <h1 id="nomePokemon"></h1>
+            <div class="tipo" id="tipoPokemon"></div>
+            <p class="descricao">
+                Snorlax é preguiçoso por natureza e só se move quando precisa comer ou dormir.
+            </p>
+            <div class="detalhes-perfil">
+                <div class="linha-detalhe">
+                    <img src="regua.png" alt="">
+                    <span>ALTURA</span>
+                    <strong id="alturaPokemon"></strong>
+                </div>
+                <div class="linha-detalhe">
+                    <img src="peso.png" alt="">
+                    <span>PESO</span>
+                    <strong id="pesoPokemon"></strong>
+                </div>
+                <div class="linha-detalhe">
+                    <img src="escudocontorno.png" alt="">
+                    <span>HABILIDADE</span>
+                    <strong id="habilidadePokemon"></strong>
+                </div>
+                <div class="linha-detalhe linha-sem-borda">
+                    <img src="biceps2.png" alt="">
+                    <span>FRAQUEZA</span>
+                    <strong id="fraquezaPokemon"></strong>
+                </div>
+            </div>
+        </section>
+        <section class="conteudo">
+            <div class="card barras">
+                <div class="status-barra box-vida">
+                    <div class="titulo-barra">
+                        <span class="icone-texto emoji-vida">❤️</span>
+                        <strong>VIDA</strong>
+                        <span class="valor-barra" id="textoVida"></span>
+                    </div>
+                    <div class="barra-fundo">
+                        <div class="barra-preenchimento vida" id="barraVida"></div>
+                    </div>
+                </div>
+                <div class="status-barra box-energia">
+                    <div class="titulo-barra">
+                        <span class="icone-texto emoji-energia">⚡</span>
+                        <strong>ENERGIA</strong>
+                        <span class="valor-barra" id="textoEnergia"></span>
+                    </div>
+                    <div class="barra-fundo">
+                        <div class="barra-preenchimento energia" id="barraEnergia"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="card status">
+                <div class="status-linha">
+                    <div class="status-item status-borda-direita status-borda-baixo">
+                        <img src="123.png" alt="">
+                        <div class="texto-status">
+                            <span>NÍVEL</span>
+                            <strong id="nivelPokemon"></strong>
+                        </div>
+                    </div>
+                    <div class="status-item status-borda-direita status-borda-baixo">
+                        <img src="biceps.png" alt="">
+                        <div class="texto-status">
+                            <span>FORÇA</span>
+                            <strong id="forcaPokemon"></strong>
+                        </div>
+                    </div>
+                    <div class="status-item status-borda-baixo">
+                        <img src="escudocontorno.png" alt="">
+                        <div class="texto-status">
+                            <span>DEFESA</span>
+                            <strong id="defesaPokemon"></strong>
+                        </div>
+                    </div>
+                </div>
+                <div class="status-linha">
+                    <div class="status-item status-borda-direita">
+                        <img src="vento.png" alt="">
+                        <div class="texto-status">
+                            <span>VELOCIDADE</span>
+                            <strong id="velocidadePokemon"></strong>
+                        </div>
+                    </div>
+                    <div class="status-item status-borda-direita">
+                        <img src="escudopreenchido.png" alt="">
+                        <div class="texto-status">
+                            <span>HABILIDADE</span>
+                            <strong id="habilidadeStatus"></strong>
+                        </div>
+                    </div>
+                    <div class="status-item">
+                        <img src="circulopontilhado.png" alt="">
+                        <div class="texto-status">
+                            <span>EVOLUÇÃO</span>
+                            <strong id="evolucaoPokemon"></strong>
+                        </div>
+                    </div>
+                </div>
+                <div class="ataques">
+                    <div class="ataque-item ataque-borda">
+                        <img src="explosao.png" alt="">
+                        <div class="texto-status">
+                            <span>ATAQUE PRINCIPAL</span>
+                            <strong id="ataquePrincipal"></strong>
+                        </div>
+                    </div>
+                    <div class="ataque-item">
+                        <img src="explosao2.png" alt="">
+                        <div class="texto-status">
+                            <span>ATAQUE SECUNDÁRIO</span>
+                            <strong id="ataqueSecundario"></strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card area-acoes" id="acoes">
+                <h2>AÇÕES</h2>
+                <div class="botoes">
+                    <div class="linha-botoes">
+                        <button id="btnAtacar">
+                            <img src="espadas.png" alt="">
+                            ATACAR
+                        </button>
+                        <button id="btnComer">
+                            <img src="maca.png" alt="">
+                            COMER
+                        </button>
+                        <button id="btnDormir">
+                            <img src="cama.png" alt="">
+                            DORMIR
+                        </button>
+                    </div>
+                    <div class="linha-botoes">
+                        <button id="btnAndar">
+                            <img src="andando.png" alt="">
+                            ANDAR
+                        </button>
+                        <button id="btnDescansar">
+                            <img src="cafe.png" alt="">
+                            DESCANSAR
+                        </button>
+                        <button id="btnDano">
+                            <img src="escudo2.png" alt="">
+                            RECEBER DANO
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="card ultima-acao">
+                <h2>ÚLTIMA AÇÃO</h2>
+                <div class="mensagem">
+                    <img class="mini-snorlax" src="snorlax2.png" alt="Snorlax">
+                    <p id="mensagemAcao">
+                        Snorlax está pronto para a batalha!
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

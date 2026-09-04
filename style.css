@@ -1,0 +1,589 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=TikTok+Sans:opsz,wght@12..36,300..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=TikTok+Sans:opsz,wght@12..36,300..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=TikTok+Sans:opsz,wght@12..36,300..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=TikTok+Sans:opsz,wght@12..36,300..900&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    background: #ebe8e2;
+    color: #17262d;
+    min-height: 100vh;
+}
+
+.topo {
+    width: calc(100% - 32px);
+    max-width: 1400px;
+    margin: 16px auto;
+    min-height: 78px;
+    padding: 0 30px;
+    background: #ffffff;
+    border-radius: 18px;
+    border-bottom: 5px solid #206070;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 7px 0 #d8d4cd;
+}
+
+.marca {
+    font-family: "Montserrat", sans-serif;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-size: 24px;
+    font-weight: 800;
+    color: #206070;
+    letter-spacing: 1px;
+}
+
+.pokebola {
+    width: 44px;
+    height: 44px;
+    object-fit: contain;
+    display: block;
+}
+
+nav {
+    display: flex;
+    gap: 10px;
+}
+
+nav a {
+    font-family: "TikTok Sans", sans-serif;
+    text-decoration: none;
+    color: #17262d;
+    font-size: 14px;
+    font-weight: 800;
+    padding: 10px 15px;
+    border-radius: 10px;
+}
+
+nav a:hover {
+    color: #206070;
+    background: #e8f1f2;
+}
+
+.pagina {
+    width: calc(100% - 32px);
+    max-width: 1400px;
+    margin: 0 auto 34px;
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.card {
+    background: #ffffff;
+    border: 1px solid #e2ded6;
+    border-radius: 18px;
+    box-shadow: 0 7px 0 #d8d4cd;
+}
+
+.perfil {
+    width: 380px;
+    padding: 28px;
+    position: relative;
+    text-align: center;
+    overflow: hidden;
+    border-top: 7px solid #206070;
+    background: linear-gradient(#e4eff0 0 205px, #ffffff 205px);
+}
+
+.numero {
+    position: absolute;
+    top: 22px;
+    left: 22px;
+    background: #206070;
+    color: #ffffff;
+    padding: 7px 15px;
+    border-radius: 12px;
+    font-family: "Montserrat", sans-serif;
+    font-size: 18px;
+    font-weight: 800;
+    transform: rotate(-3deg);
+    z-index: 3;
+    box-shadow: 0 4px 0 #123f49;
+}
+
+.imagem-pokemon {
+    width: 100%;
+    max-width: 318px;
+    height: 318px;
+    margin: 18px auto 8px;
+    background: #f5f2ec;
+    border: 5px solid #ffffff;
+    outline: 3px solid #206070;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.imagem-pokemon img {
+    width: 91%;
+    height: 91%;
+    object-fit: contain;
+    display: block;
+}
+
+.zzz {
+    position: absolute;
+    top: 26px;
+    right: 20px;
+    z-index: 2;
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 27px;
+    letter-spacing: 4px;
+    color: #206070;
+    transform: rotate(10deg);
+}
+
+.perfil h1 {
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 400;
+    color: #206070;
+    font-size: 62px;
+    letter-spacing: 5px;
+    margin-top: 18px;
+}
+
+.tipo {
+    display: inline-block;
+    margin-top: 8px;
+    background: #8f8a80;
+    color: #ffffff;
+    border-radius: 10px;
+    padding: 6px 22px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 800;
+    box-shadow: 0 4px 0 #6f6b64;
+}
+
+.descricao {
+    margin: 22px auto 24px;
+    max-width: 305px;
+    font-family: "Nunito Sans", sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    color: #3e4b50;
+}
+
+.detalhes-perfil {
+    background: #faf8f4;
+    border: 2px solid #e6e0d7;
+    border-radius: 14px;
+    padding: 7px 14px;
+    text-align: left;
+}
+
+.linha-detalhe {
+    min-height: 49px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    border-bottom: 1px solid #e5e0d8;
+    font-size: 13px;
+}
+
+.linha-sem-borda {
+    border-bottom: none;
+}
+
+.linha-detalhe img {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+    display: block;
+    flex-shrink: 0;
+    background: #e3eff0;
+    padding: 5px;
+    border-radius: 8px;
+}
+
+.linha-detalhe span {
+    color: #206070;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 800;
+    flex: 1;
+}
+
+.linha-detalhe strong {
+    font-weight: 600;
+    color: #38474c;
+}
+
+.conteudo {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.barras {
+    padding: 25px 28px;
+    display: flex;
+    gap: 18px;
+    border-top: 7px solid #206070;
+}
+
+.status-barra {
+    flex: 1;
+    padding: 17px 18px;
+    border-radius: 14px;
+    border: 2px solid #ebe6de;
+}
+
+.box-vida {
+    background: #fff3f1;
+    border-color: #f0c2bd;
+}
+
+.box-energia {
+    background: #fff9e7;
+    border-color: #efd98c;
+}
+
+.titulo-barra {
+    display: flex;
+    align-items: center;
+    margin-bottom: 13px;
+    color: #206070;
+    gap: 10px;
+}
+
+.titulo-barra strong {
+    font-family: "Montserrat", sans-serif;
+    font-size: 16px;
+    flex: 1;
+    letter-spacing: .5px;
+}
+
+.valor-barra {
+    color: #17262d;
+    font-weight: 800;
+}
+
+.icone-texto {
+    width: 32px;
+    min-width: 32px;
+    font-size: 23px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.emoji-vida,
+.emoji-energia {
+    font-family: "Segoe UI Emoji", "Apple Color Emoji", "Noto Color Emoji", sans-serif;
+}
+
+.barra-fundo {
+    width: 100%;
+    height: 17px;
+    background: #ddd9d1;
+    border: 2px solid #d5d0c7;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.barra-preenchimento {
+    height: 100%;
+    width: 100%;
+    border-radius: 20px;
+    transition: width 0.3s;
+}
+
+.vida {
+    background: #d9534f;
+}
+
+.energia {
+    background: #f2bd2f;
+}
+
+.status {
+    padding: 18px 20px 20px;
+    border-top: 7px solid #f2bd2f;
+}
+
+.status-linha {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.status-item {
+    width: 33.33%;
+    min-height: 92px;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: #f7f8f6;
+    border: 2px solid #e6e4de;
+    border-radius: 13px;
+    transition: transform 0.2s;
+}
+
+.status-item:hover {
+    transform: translateY(-3px);
+    border-color: #b7d1d5;
+}
+
+.status-borda-direita,
+.status-borda-baixo {
+    border-right: 2px solid #e6e4de;
+    border-bottom: 2px solid #e6e4de;
+}
+
+.status-item img,
+.ataque-item img {
+    width: 45px;
+    height: 45px;
+    object-fit: contain;
+    display: block;
+    flex-shrink: 0;
+    background: #e3eff0;
+    border-radius: 50%;
+    padding: 8px;
+}
+
+.texto-status {
+    display: flex;
+    flex-direction: column;
+}
+
+.texto-status span {
+    font-family: "Montserrat", sans-serif;
+    font-size: 11px;
+    color: #727272;
+    font-weight: 700;
+}
+
+.texto-status strong {
+    font-size: 17px;
+    color: #142329;
+}
+
+.ataques {
+    display: flex;
+    gap: 12px;
+    margin-top: 4px;
+}
+
+.ataque-item {
+    width: 50%;
+    min-height: 82px;
+    padding: 16px 18px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: #edf6f7;
+    border: 2px solid #cfe0e3;
+    border-radius: 13px;
+}
+
+.ataque-borda {
+    border-right: 2px solid #cfe0e3;
+}
+
+.area-acoes,
+.ultima-acao {
+    padding: 22px 26px 25px;
+}
+
+.area-acoes {
+    background: #edf5f6;
+    border-top: 7px solid #206070;
+}
+
+.area-acoes h2,
+.ultima-acao h2 {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 800;
+    color: #206070;
+    font-size: 20px;
+    margin-bottom: 17px;
+    padding-left: 10px;
+    border-left: 5px solid #f2bd2f;
+}
+
+.botoes {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.linha-botoes {
+    display: flex;
+    gap: 14px;
+}
+
+.botoes button {
+    width: 33.33%;
+    min-height: 70px;
+    background: #ffffff;
+    border: 2px solid #bbbbbb;
+    border-radius: 12px;
+    font-family: "TikTok Sans", sans-serif;
+    font-size: 14px;
+    font-weight: 800;
+    color: #17262d;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.botoes button img {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+    display: block;
+    flex-shrink: 0;
+}
+
+.botoes button:hover {
+    transform: translateY(-3px);
+}
+
+.botoes button:active {
+    transform: translateY(1px);
+}
+
+#btnAtacar {
+    background: #fff0ee;
+    border-color: #d9534f;
+    box-shadow: 0 4px 0 #d9534f;
+}
+
+#btnComer {
+    background: #eff8ef;
+    border-color: #6b9b71;
+    box-shadow: 0 4px 0 #6b9b71;
+}
+
+#btnDormir {
+    background: #edf6fa;
+    border-color: #4d8194;
+    box-shadow: 0 4px 0 #4d8194;
+}
+
+#btnAndar {
+    background: #edfafa;
+    border-color: #409a9d;
+    box-shadow: 0 4px 0 #409a9d;
+}
+
+#btnDescansar {
+    background: #f5f0fb;
+    border-color: #7d66a2;
+    box-shadow: 0 4px 0 #7d66a2;
+}
+
+#btnDano {
+    background: #fff4e8;
+    border-color: #c98137;
+    box-shadow: 0 4px 0 #c98137;
+}
+
+.ultima-acao {
+    border-top: 7px solid #f2bd2f;
+}
+
+.mensagem {
+    min-height: 82px;
+    padding: 14px 18px;
+    border-left: 7px solid #206070;
+    border-top: 2px dashed #d5c379;
+    border-right: 2px dashed #d5c379;
+    border-bottom: 2px dashed #d5c379;
+    border-radius: 12px;
+    background: #fff7da;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.mini-snorlax {
+    width: 56px;
+    height: 56px;
+    object-fit: contain;
+    background: #ffffff;
+    border: 2px solid #206070;
+    border-radius: 50%;
+    padding: 4px;
+}
+
+.mensagem p {
+    font-family: "Nunito Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 800;
+}
+
+@media (max-width: 1000px) {
+    .pagina {
+        flex-direction: column;
+    }
+
+    .perfil {
+        width: 100%;
+        max-width: 600px;
+        margin: auto;
+    }
+
+    .conteudo {
+        width: 100%;
+    }
+}
+
+@media (max-width: 720px) {
+    .topo {
+        padding: 16px 20px;
+    }
+
+    nav {
+        display: none;
+    }
+
+    .pagina {
+        width: calc(100% - 20px);
+    }
+
+    .barras,
+    .status-linha,
+    .ataques,
+    .linha-botoes {
+        flex-direction: column;
+    }
+
+    .barras {
+        gap: 16px;
+        padding: 18px;
+    }
+
+    .status-item,
+    .ataque-item,
+    .botoes button {
+        width: 100%;
+    }
+
+    .perfil h1 {
+        font-size: 52px;
+    }
+
+    .imagem-pokemon {
+        height: 285px;
+    }
+}
